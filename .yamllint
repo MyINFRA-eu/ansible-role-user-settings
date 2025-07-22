@@ -1,0 +1,27 @@
+---
+extends: default
+
+comments:
+  min-spaces-from-content: 1
+
+rules:
+  line-length:
+    max: 160
+    level: warning
+  indentation:
+    spaces: consistent
+    indent-sequences: false
+    check-multi-line-strings: false
+    level: warning
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+    min-spaces-inside-empty: -1
+    max-spaces-inside-empty: 1
+
+ignore: |
+  .github/workflows/stale.yml
+  .github/workflows/release.yml
+  .github/workflows/ci.yml
+  .github/workflows/add-release-manually.yml
+  .github/workflows/remove-from-galaxy.yml

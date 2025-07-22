@@ -1,0 +1,22 @@
+## Ignore temporary files
+
+# Temp directory
+temp/
+tmp/
+
+# VS Code files for those working on multiple tools
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Ansible temp/cache
+*.retry
+*/__pycache__
+*.pyc
+.cache
+
+# Ansible Galaxy Token
+.galaxy-api-token

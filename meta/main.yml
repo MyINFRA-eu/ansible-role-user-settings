@@ -1,0 +1,27 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: "name"
+  namespace: "myinfra_eu"
+  author: "Dennis-de-Houx"
+  description: "<description>."
+  company: "All In One - MyINFRA.eu"
+  license: "CC BY-NC-ND 4.0"
+  issue_tracker_url: https://github.com/MyINFRA-eu/<name>/issues
+  min_ansible_version: "2.17"
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - jammy
+        - noble
+  galaxy_tags:
+    - php
+    - web
+    - drupal
+    - vm
+    - magento
+    - wordpress

@@ -1,0 +1,21 @@
+---
+#####
+#
+# @name MyINFRA.eu ~ Ansible <name> Role
+# @version 2025.07-001
+# @since 2025.07-001
+#
+# @copyright (c) 2025 (and beyond) - Dennis de Houx, All In One, One For The code
+# @author Dennis de Houx <dennis@dehoux.be>
+# @license https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en CC BY-NC-ND 4.0
+#
+###
+#
+# Ansible defaults for <name>
+#
+#####
+
+### Role version
+myinfra:
+  <name>:
+    version: "2025.07.001"
