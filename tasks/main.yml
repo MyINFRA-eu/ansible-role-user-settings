@@ -1,7 +1,7 @@
 ---
 #####
 #
-# @name MyINFRA.eu ~ Ansible <name> Role
+# @name MyINFRA.eu ~ Ansible User Settings Role
 # @version 2025.07.001
 # @since 2025.07.001
 #
@@ -11,20 +11,15 @@
 #
 ###
 #
-# Ansible role for <description>
+# Ansible role to install MyINFRA.eu user settings tool.
 #
 #####
 
 - name: "Copyright & Version information"
   ansible.builtin.debug:
     msg:
-      - "MyINFRA.eu ~ Ansible <name> Role"
-      - "Version   : {{ myinfra.<name>.version }}"
+      - "MyINFRA.eu ~ Ansible User Settings Role"
+      - "Version   : {{ myinfra.user_settings.version }}"
       - "Copyright : (c) 2025 (and beyond) - Dennis de Houx, All In One, One For The code"
       - "Author    : Dennis de Houx <dennis@dehoux.be>"
       - "License   : https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en CC BY-NC-ND 4.0"
-
-- name: "Load: Gather facts tasks"
-  ansible.builtin.import_tasks: gather.yml
-  tags:
-    - <short_name>_gather_facts

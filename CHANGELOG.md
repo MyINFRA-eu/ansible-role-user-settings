@@ -1,15 +1,15 @@
 # Changelog
 
-All notable changes to <name> will be documented in this file.
+All notable changes to ansible-role-user-settings will be documented in this file.
 
-## <version> - <date>
+## 2025.07.001 - 22/07/2025
 
 ### What's Changed
 
-- item 1
-- item 2
+- Initial release
 
-**Full Changelog**: https://github.com/MyINFRA-eu/<name>/compare/<version-new>...<version-previous>
+**Full Changelog**: https://github.com/MyINFRA-eu/ansible-role-user-settings/commits/2025.07.001
 
 ### New Contributors
-- @<user> made their first contribution in <pull url>
+- [@Dennis-de-Houx](https://github.com/orgs/MyINFRA-eu/people/Dennis-de-Houx)
+

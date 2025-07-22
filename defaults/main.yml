@@ -1,9 +1,9 @@
 ---
 #####
 #
-# @name MyINFRA.eu ~ Ansible <name> Role
-# @version 2025.07-001
-# @since 2025.07-001
+# @name MyINFRA.eu ~ Ansible User Settings Role
+# @version 2025.07.001
+# @since 2025.07.001
 #
 # @copyright (c) 2025 (and beyond) - Dennis de Houx, All In One, One For The code
 # @author Dennis de Houx <dennis@dehoux.be>
@@ -11,11 +11,11 @@
 #
 ###
 #
-# Ansible defaults for <name>
+# Ansible defaults for ansible-role-user-settings
 #
 #####
 
 ### Role version
 myinfra:
-  <name>:
+  user_settings:
     version: "2025.07.001"
