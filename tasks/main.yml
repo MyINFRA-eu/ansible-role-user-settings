@@ -23,3 +23,91 @@
       - "Copyright : (c) 2025 (and beyond) - Dennis de Houx, All In One, One For The code"
       - "Author    : Dennis de Houx <dennis@dehoux.be>"
       - "License   : https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en CC BY-NC-ND 4.0"
+
+- name: "USER SETTINGS > Install required packages"
+  ansible.builtin.apt:
+    name:
+      - dialog
+    state: "{{ packages.state | default('latest') }}"
+    update_cache: "{{ packages.cache.update | default(true) }}"
+    cache_valid_time: "{{ packages.cache.time | default(3600) }}"
+    install_recommends: "{{ packages.recommends | default(false) }}"
+  become: true
+  when:
+    - ansible_facts['os_family'] == "Debian"
+    - user-settings.install is defined and user-settings.install is true
+  tags:
+    - user_settings
+
+- name: "USER SETTINGS > Create/Manage User Settings script"
+  copy:
+    src: files/user-settings.sh
+    dest: /usr/local/bin/user-settings
+    owner: root
+    group: root
+    mode: 0777
+    backup: yes
+  when:
+    - user-settings.install is defined and user-settings.install is true
+  tags:
+    - user_settings
+
+- name: "USER SETTINGS > Create root config directory"
+  ansible.builtin.file:
+    path: /root/.config
+    owner: root
+    group: root
+    state: directory
+    mode: 0750
+  become: true
+  when:
+    - user-settings.install is defined and user-settings.install is true
+  tags:
+    - user_settings
+
+- name: "USER SETTINGS > Configure default root settings"
+  copy:
+    src: files/user.conf
+    dest: /root/.config/user.conf
+    owner: "root"
+    group: "root"
+    mode: 0600
+    force: no
+  become: true
+  when:
+    - user-settings.install is defined and user-settings.install is true
+  tags:
+    - user_settings
+
+- name: "USER SETTINGS > Create user config directory"
+  ansible.builtin.file:
+    path: "/home/{{ item.name }}/.config"
+    owner: "{{ item.name }}"
+    group: "{{ item.group | default(item.name if users_create_group else omit) }}"
+    state: directory
+    mode: 0750
+  become: true
+  #become_user: "{{ item.name }}"
+  loop: "{{ users_list }}"
+  when:
+    - user-settings.install is defined and user-settings.install is true
+    - user_list is defined and user_list | length > 0
+  tags:
+    - user_settings
+
+- name: "USER SETTINGS > Configure default user settings"
+  copy:
+    src: files/user.conf
+    dest: /home/{{ item.name }}/.config/user.conf
+    owner: "{{ item.name }}"
+    group: "{{ item.group | default(item.name if users_create_group else omit) }}"
+    mode: 0600
+    force: no
+  become: true
+  #become_user: "{{ item.name }}"
+  loop: "{{ users_list }}"
+  when:
+    - user-settings.install is defined and user-settings.install is true
+    - user_list is defined and user_list | length > 0
+  tags:
+    - user_settings
